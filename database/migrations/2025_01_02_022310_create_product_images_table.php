@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles_permissions', function (Blueprint $table) {
+        Schema::create('product_images', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("role_id")->unsigned();
-            $table->bigInteger("permission_id")->unsigned();
-            $table->boolean("enabled");
+            $table->string("path");
+            $table->bigInteger("product_id")->unsigned();
+            $table->boolean("primary");
             $table->timestamps();
+            $table->foreign("product_id")->references("id")->on("products");
         });
     }
 
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles_permissions');
+        Schema::dropIfExists('product_images');
     }
 };

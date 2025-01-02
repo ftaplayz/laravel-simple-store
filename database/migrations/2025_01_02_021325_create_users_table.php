@@ -20,6 +20,8 @@ return new class extends Migration
             $table->bigInteger("phone_number")->unsigned();
             $table->bigInteger("role_id")->unsigned();
             $table->timestamps();
+            $table->foreign("country_code")->references("code")->on("countries");
+            $table->foreign("role_id")->references("id")->on("roles");
         });
     }
 

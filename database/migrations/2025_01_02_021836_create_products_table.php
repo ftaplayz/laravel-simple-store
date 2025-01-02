@@ -18,9 +18,10 @@ return new class extends Migration
             $table->bigInteger("user_id")->unsigned();
             $table->bigInteger("product_category_id")->unsigned();
             $table->smallInteger("stock");
-            $table->bigInteger("primary_image_id")->unsigned();
             $table->decimal("price", total: 10, places: 2);
             $table->timestamps();
+            $table->foreign("user_id")->references("id")->on("users");
+            $table->foreign("product_category_id")->references("id")->on("product_categories");
         });
     }
 

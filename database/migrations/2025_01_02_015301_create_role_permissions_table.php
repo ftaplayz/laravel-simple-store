@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product_tags', function (Blueprint $table) {
+        Schema::create('role_permissions', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger("product_id")->unsigned();
-            $table->bigInteger("tag_id")->unsigned();
+            $table->bigInteger("role_id")->unsigned();
+            $table->bigInteger("permission_id")->unsigned();
             $table->boolean("enabled");
             $table->timestamps();
+            $table->foreign("role_id")->references("id")->on("roles");
+            $table->foreign("permission_id")->references("id")->on("permissions");
         });
     }
 
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product_tags');
+        Schema::dropIfExists('role_permissions');
     }
 };
