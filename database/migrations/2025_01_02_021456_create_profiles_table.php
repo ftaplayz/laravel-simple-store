@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->bigInteger("user_id")->unsigned();
             $table->string("name");
-            $table->tinyInteger("country_code")->unsigned();
+            $table->smallInteger("country_code")->unsigned();
             $table->bigInteger("phone_number")->unsigned();
             $table->string("country");
             $table->string("shipping_address");

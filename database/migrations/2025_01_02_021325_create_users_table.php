@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("username")->unique();
             $table->string("email")->unique();
             $table->string("password");
-            $table->tinyInteger("country_code")->unsigned();
+            $table->smallInteger("country_code")->unsigned();
             $table->bigInteger("phone_number")->unsigned();
             $table->bigInteger("role_id")->unsigned();
             $table->timestamps();

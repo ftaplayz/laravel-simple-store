@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('countries', function (Blueprint $table) {
-            $table->tinyInteger("code")->unsigned()->primary();
+            $table->smallInteger("code")->unsigned()->primary();
             $table->string("name");
             $table->tinyInteger("phone_length")->unsigned();
             $table->timestamps();
